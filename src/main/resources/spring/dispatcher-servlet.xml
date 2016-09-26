@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+       <!-- Standard xml based mvc config-->
+       <mvc:annotation-driven/>
+       <!-- Scan some API controllers -->
+       <context:component-scan base-package="springfox.petstore.controller" />
+       <context:component-scan base-package="com.wanda.swagger.controller" />
+       <!-- include a swagger configuation -->
+       <bean name="applicationSwaggerConfig" class="com.wanda.swagger.swagger.ApplicationSwaggerConfig" />
+        <!-- Enables swgger ui-->
+        <mvc:resources mapping="*.html" location="/"/>
+        <mvc:resources mapping="/**" location="/"/>
+</beans>
