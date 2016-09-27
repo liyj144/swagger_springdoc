@@ -1,32 +1,28 @@
 package com.wanda.swagger.controller;
 
 import io.swagger.annotations.*;
+import org.springframework.web.bind.annotation.*;
 import com.wanda.swagger.model.UamGroup;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.util.LinkedList;
 import java.util.List;
 
-/**
- * Created by yanjie on 2016/9/26.
- */
-@Controller
-@RequestMapping(value = "/group", produces = {"application/json;charset=UTF-8"})
-@Api(value = "/group", description = "群组的相关操作")
-public class GroupController{
+@RestController
+@RequestMapping(value = "/group", produces = {"application/json;charset=utf-8"})
+@Api(value = "/group", description="add a new group")
+public class GroupController {
     @RequestMapping(value = "addGroup", method = RequestMethod.PUT)
-    @ApiOperation(notes = "addGroup", httpMethod = "POST", value="添加一个新的群组")
+    @ApiOperation(notes = "addGroup", httpMethod = "POST", value = "添加一个新的群组")
     @ApiResponses(value = {@ApiResponse(code = 405, message = "invalid input")})
-    public UamGroup addGroup(@ApiParam(required = true, value="group data") @RequestBody UamGroup group){
+    @ResponseBody
+    public UamGroup addGroup(@ApiParam(required = true, value = "group data") @RequestBody UamGroup group) {
         return group;
     }
 
     @RequestMapping(value = "getAccessibleGroups", method = RequestMethod.GET)
-    @ApiOperation(notes = "getAccessibleGroups", httpMethod = "GET", value="获取我可以访问的群组的列表")
-    public List<UamGroup> getAccessibleGroups(){
+    @ApiOperation(notes = "getAccessibleGroups", httpMethod = "GET", value = "获取我可访问的群组列表 ")
+    @ResponseBody
+    public List<UamGroup> getAccessibleGroups() {
         UamGroup group1 = new UamGroup();
         group1.setGroupId("1");
         group1.setName("testGroup1");
