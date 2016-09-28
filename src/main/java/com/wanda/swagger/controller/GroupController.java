@@ -12,7 +12,7 @@ import java.util.List;
 @Api(value = "/group", description="分组管理")
 public class GroupController {
     @RequestMapping(value = "addGroup", method = RequestMethod.PUT)
-    @ApiOperation(notes = "addGroup", httpMethod = "POST", value = "添加一个新的群组")
+    @ApiOperation(notes = "addGroup", httpMethod = "POST", value = "添加一个群组")
     @ApiResponses(value = {@ApiResponse(code = 405, message = "invalid input")})
     @ResponseBody
     public UamGroup addGroup(@ApiParam(required = true, value = "group data") @RequestBody UamGroup group) {
@@ -20,7 +20,7 @@ public class GroupController {
     }
 
     @RequestMapping(value = "getAccessibleGroups", method = RequestMethod.GET)
-    @ApiOperation(notes = "getAccessibleGroups", httpMethod = "GET", value = "获取我可访问的群组列表 ")
+    @ApiOperation(notes = "getAccessibleGroups", httpMethod = "GET", value = "获取可访问群组列表 ")
     @ResponseBody
     public List<UamGroup> getAccessibleGroups() {
         UamGroup group1 = new UamGroup();

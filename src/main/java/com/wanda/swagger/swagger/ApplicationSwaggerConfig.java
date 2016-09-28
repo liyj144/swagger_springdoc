@@ -15,7 +15,7 @@ public class ApplicationSwaggerConfig {
     public Docket addUserDocket(){
         Docket docket = new Docket(DocumentationType.SWAGGER_2);
         ApiInfo apiInfo = new ApiInfo(
-                "restful API",
+                "万达征信APP接口文档",
                 "API Document管理",
                 "V1.0.0",
                 "blog.liyanjie.top",
