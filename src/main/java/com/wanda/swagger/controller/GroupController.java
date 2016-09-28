@@ -9,7 +9,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping(value = "/group", produces = {"application/json;charset=utf-8"})
-@Api(value = "/group", description="add a new group")
+@Api(value = "/group", description="分组管理")
 public class GroupController {
     @RequestMapping(value = "addGroup", method = RequestMethod.PUT)
     @ApiOperation(notes = "addGroup", httpMethod = "POST", value = "添加一个新的群组")
